@@ -6,13 +6,29 @@
 Welcome to User_API's documentation!
 ====================================
 
+This is a simple and basic  **Django User Registration Management with Schedule Events**!!
+
+My First Development Project.
+
+The Functionalities are:
+
+- Project structure
+- **HTML5 Templates**
+- Template Inheritance
+- Functional **tests**
+
+
+To start, check out the :doc:`requirements`
+and next the :doc:`quick_start`.
+
 
 Contents:
 .. toctree::
    :maxdepth: 2
 
-   all-about-me/views.rst
-   modules/models.rst
+   requirements
+   quick_start
+   installation_guide
 
 
 Indices and tables
