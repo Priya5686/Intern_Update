@@ -3,12 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to User_API's documentation!
+Welcome to User API documentation!
 ====================================
 
 This is a simple and basic  **Django User Registration Management with Schedule Events**!!
-
-My First Development Project.
 
 The Functionalities are:
 
@@ -19,15 +17,16 @@ The Functionalities are:
 
 
 To start, check out the :doc:`requirements`
-and next the :doc:`quick_start`.
+
 
 
 Contents:
 .. toctree::
    :maxdepth: 2
 
-   requirements
-   quick_start
+   :requirements
+   :installation_guide
+   :quick_start
 
 
 Indices and tables

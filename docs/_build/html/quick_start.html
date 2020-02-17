@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="English">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; User_API 2.2 documentation</title>
+    <title>Quick Start Guide &#8212; User_API 2.2 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -30,7 +30,144 @@
 
           <div class="body" role="main">
             
-  
+  <div class="section" id="quick-start-guide">
+<h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="project-name">
+<h1>Project Name<a class="headerlink" href="#project-name" title="Permalink to this headline">¶</a></h1>
+<p>This project is named <em>User Registration Management and schedule Events</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>User_API - project name</strong></p></li>
+<li><p>virtual environment names: myenv</p></li>
+</ul>
+</div></blockquote>
+<p>First you’ll need to have Django and django-registration installed;
+for details on that, see the <a class="reference internal" href="installation_guide.html"><span class="doc">Django Installation</span></a></p>
+</div>
+<div class="section" id="setting-up-urls">
+<h1>Setting up URLs<a class="headerlink" href="#setting-up-urls" title="Permalink to this headline">¶</a></h1>
+<p>Each bundled registration workflow in django-registration includes a
+Django URLconf which sets up URL patterns for the views in django-registration.
+The URLconf for the two-step activation workflow can be found at
+django_registration.backends.activation.urls.</p>
+<p>For example, to place the registration URLs under the prefix /accounts/,
+you could add the following to your project’s root URLconf:</p>
+<p>from django.urls import include, path</p>
+<p>urlpatterns = [
+path('accounts/', include('django_registration.backends.activation.urls')),
+path('accounts/', include('django.contrib.auth.urls')),
+# More URL patterns ...
+]</p>
+<p>Users would then be able to register by visiting the URL /accounts/register/,
+log in (once activated) at /accounts/login/,etc.</p>
+<p>The sample URL configuration above also sets up the built-in auth views
+included in Django (login, logout, password reset, etc.)
+via the django.contrib.auth.urls URLconf.</p>
+</div>
+<div class="section" id="create-app-in-project">
+<h1>Create App in project<a class="headerlink" href="#create-app-in-project" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>$python manage.py startapp User_APP</p>
+</div></blockquote>
+<p>Install Apps:</p>
+<blockquote>
+<div><p>In User_API settings.py,</p>
+<dl class="simple">
+<dt>Installed_Apps=['',</dt><dd><p>'',
+'',
+'&lt;App_name&gt;'
+]</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="write-first-view">
+<h1>Write First View<a class="headerlink" href="#write-first-view" title="Permalink to this headline">¶</a></h1>
+<p>Let’s write the first view. Open the file User_APP/views.py</p>
+<blockquote>
+<div><p><strong>User_APP/views.py</strong></p>
+</div></blockquote>
+<p>from django.http import HttpResponse</p>
+<dl class="simple">
+<dt>def index(request):</dt><dd><p>return HttpResponse(&quot;Hello, world. Welcome to my first django Project.&quot;)</p>
+</dd>
+</dl>
+<p>To call the view, we need to map it to a URL - and for this we need a URLconf.</p>
+<p>To create a URLconf in the User_APP directory,
+create a file called urls.py in app directory.</p>
+<p>from django.urls import path</p>
+<p>from . import views</p>
+<dl class="simple">
+<dt>urlpatterns = [</dt><dd><p>path('', views.index, name='index'),</p>
+</dd>
+</dl>
+<p>]</p>
+<p>The next step is to point the root URLconf at the User_APP.urls module.
+In User_API/urls.py, add an import for django.urls.include and insert an include()
+in the urlpatterns list, so you have:</p>
+<p>User_API/urls.py</p>
+<p>from django.contrib import admin
+from django.urls import include, path</p>
+<dl class="simple">
+<dt>urlpatterns = [</dt><dd><p>path('app/', include('User_APP.urls')),
+path('admin/', admin.site.urls),</p>
+</dd>
+</dl>
+<p>]</p>
+<p>Then, i used two function based views namely,</p>
+<blockquote>
+<div><p><strong>home</strong>
+<strong>register</strong></p>
+</div></blockquote>
+<dl class="simple">
+<dt>def home()</dt><dd><p>It accepts request parameter and render html values to the user.</p>
+</dd>
+<dt>def register()</dt><dd><p>It accepts request parameter and get the values store in the models(Django Db)
+Then ensure the values of user ,If its valid it has to be registered.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="templates">
+<h1>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h1>
+<p>Django needs a convenient way to generate HTML dynamically.
+The most common approach relies on templates.
+A template contains the static parts of the desired HTML output
+as well as some special syntax describing how dynamic content will be inserted.
+For a hands-on example of creating HTML pages with templates.</p>
+<p>Configuration</p>
+<p>Templates engines are configured with the TEMPLATES setting. It’s a list of configurations, one for each engine.
+The default value is empty.
+The settings.py generated by the startproject command defines a more useful value:</p>
+<dl>
+<dt>TEMPLATES = [</dt><dd><dl>
+<dt>{</dt><dd><p>'BACKEND': 'django.template.backends.django.DjangoTemplates',
+'DIRS': [],
+'APP_DIRS': True,
+'OPTIONS': {</p>
+<blockquote>
+<div><p># ... some options here ...</p>
+</div></blockquote>
+<p>},</p>
+</dd>
+</dl>
+<p>},</p>
+</dd>
+</dl>
+<p>]</p>
+<p>In this project i used four templates,</p>
+<dl class="simple">
+<dt>1.Login</dt><dd><p>Authorized user can login with password credentials.</p>
+</dd>
+<dt>2.Logout</dt><dd><p>Sign Out of the site.</p>
+</dd>
+<dt>3.Register</dt><dd><p>New User can Register with Username and Email credentials.</p>
+</dd>
+<dt>4.Profile</dt><dd><p>Registered Users have look their own profile.</p>
+</dd>
+</dl>
+</div>
+
 
           </div>
           

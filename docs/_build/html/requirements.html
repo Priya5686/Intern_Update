@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="English">
   <head>
     <meta charset="utf-8" />
-    <title>Project Name &#8212; User_API 2.2 documentation</title>
+    <title>Requirements &#8212; User_API 2.2 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -30,44 +30,16 @@
 
           <div class="body" role="main">
             
-  <p>The requirements necessary to use this Django Project</p>
+  <div class="section" id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<p>The requirements necessary to use this Django Project</p>
 <ul class="simple">
 <li><p><strong>python3</strong> and <strong>pip3</strong></p></li>
 <li><p><strong>virtualenv</strong></p></li>
 <li><p><strong>IDE - Pycharm CE</strong></p></li>
 </ul>
-<p>Continue to the <a class="reference internal" href="quick_start.html"><span class="doc">&lt;no title&gt;</span></a>!</p>
-<p>Quick Start Guide</p>
-<div class="section" id="project-name">
-<h1>Project Name<a class="headerlink" href="#project-name" title="Permalink to this headline">¶</a></h1>
-<p>This project is named <em>User Registration Management and schedule Events</em></p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a href="#id1"><span class="problematic" id="id2">*</span></a>User_API - project name</p></li>
-<li><p>virtual environment names: myenv and</p></li>
-</ul>
-</div></blockquote>
-<p>First you’ll need to have Django and django-registration installed;
-for details on that, see the <span class="xref std std-doc">installation guide</span></p>
-</div>
-<div class="section" id="setting-up-urls">
-<h1>Setting up URLs<a class="headerlink" href="#setting-up-urls" title="Permalink to this headline">¶</a></h1>
-<p>Each bundled registration workflow in django-registration includes a
-Django URLconf which sets up URL patterns for the views in django-registration.
-The URLconf for the two-step activation workflow can be found at
-django_registration.backends.activation.urls.</p>
-<p>For example, to place the registration URLs under the prefix /accounts/,
-you could add the following to your project’s root URLconf:</p>
-<p>from django.urls import include, path</p>
-<p>urlpatterns = [
-path('accounts/', include('django_registration.backends.activation.urls')),
-path('accounts/', include('django.contrib.auth.urls')),
-# More URL patterns ...
-]</p>
-<p>Users would then be able to register by visiting the URL /accounts/register/,
-log in (once activated) at /accounts/login/,etc.
-The sample URL configuration above also sets up the built-in auth views included in
-Django (login, logout, password reset, etc.) via the django.contrib.auth.urls URLconf</p>
+<p>Continue to the <a class="reference internal" href="installation_guide.html"><span class="doc">Django Installation</span></a>!</p>
+<p>Continue to the <a class="reference internal" href="quick_start.html"><span class="doc">Quick Start Guide</span></a>!</p>
 </div>
 
 
